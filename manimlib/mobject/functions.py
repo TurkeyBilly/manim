@@ -47,6 +47,17 @@ class ParametricCurve(VMobject):
         if not self.has_points():
             self.set_points([self.t_func(t_min)])
         return self
+    
+    def get_t_func(self):
+        return self.t_func
+
+    def get_function(self):
+        if hasattr(self, "underlying_function")
+            return self.underlying_function
+        
+    def get_x_range(self):
+        if hasattr(self, "x_range"):
+            return self.x_range
 
 
 class FunctionGraph(ParametricCurve):
