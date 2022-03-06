@@ -48,6 +48,18 @@ class ParametricCurve(VMobject):
             self.set_points([self.t_func(t_min)])
         return self
 
+    def get_t_func(self):
+        return self.t_func
+
+    def get_function(self):
+        if hasattr(self, "underlying_function"):
+            return self.underlying_function
+        if hasattr(self, "function"):
+            return self.function
+
+    def get_x_range(self):
+        if hasattr(self, "x_range"):
+            return self.x_range
 
 class FunctionGraph(ParametricCurve):
     CONFIG = {
@@ -67,22 +79,6 @@ class FunctionGraph(ParametricCurve):
 
         super().__init__(parametric_function, self.x_range, **kwargs)
 
-    def get_function(self):
-        return self.function
-
-    def get_point_from_function(self, x):
-        return self.t_func(x)
-
-    def get_t_func(self):
-        return self.t_func
-
-    def get_function(self):
-        if hasattr(self, "underlying_function"):
-            return self.underlying_function
-
-    def get_x_range(self):
-        if hasattr(self, "x_range"):
-            return self.x_range
 
 class ImplicitFunction(VMobject):
     CONFIG = {
